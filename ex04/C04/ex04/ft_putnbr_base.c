@@ -41,7 +41,6 @@ int	ft_check_base(char *base)
 		}
 		i++;
 	}
-	// If there is no problem, the return is 1
 	return (1);
 }
 
@@ -56,10 +55,8 @@ void	ft_putnbr_base(int nbr, char *base)
 	if (!ft_check_base(base))
 		return ;
 	
-	// counts the size of the base
 	size = ft_strlen(base);
 
-	// long n avoid the issues with the int min
 	n = nbr;
 	if (n < 0)
 	{
@@ -70,16 +67,11 @@ void	ft_putnbr_base(int nbr, char *base)
 
 	while (n > 0)
 	{
-		// Array Box receives the converted values of 'n' to the base
-		// This formula of 'n' module size will find the correct number at the base
 		box[i] = base[n % size];
 		n = n / size;
 		i++;
 	}
 
-	// The values stored in box were reversed
-	// This repetition will print what is in the box
-	// starting from last position to the first
 	while (--i >= 0)
 		ft_putchar(box[i]);
 }
